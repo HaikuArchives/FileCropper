@@ -1,5 +1,5 @@
 /*
- 
+
 mainWindow.cpp
 
 FileCropper - Truncates files. That's simple.
@@ -22,7 +22,7 @@ PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIG
 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- 
+
 */
 #include "mainWindow.h"
 #include <Application.h>
@@ -34,9 +34,9 @@ mainWindow::mainWindow() : BWindow(BRect(150,100, 400, 226), "FileCropper 0.1", 
 	mainView=new BView(Bounds(), "mainView", B_FOLLOW_LEFT | B_FOLLOW_TOP, B_WILL_DRAW);
 	AddChild(mainView);
 	mainView->SetViewColor(216, 216, 216);
-	
+
 	mainView->AddChild(new BStringView(BRect(8,1,Bounds().Width()-7, 22), "stringview1", "Cut off the"));
-	
+
 	firstTC=new BTextControl(BRect(7,27,101,47), "firstTC", "first ", "0",NULL, B_FOLLOW_LEFT | B_FOLLOW_TOP);
 	mainView->AddChild(firstTC);
 	firstTC->SetDivider(28);
@@ -49,7 +49,7 @@ mainWindow::mainWindow() : BWindow(BRect(150,100, 400, 226), "FileCropper 0.1", 
 	filenameTC=new BTextControl(BRect(5,68,Bounds().Width()-10,88), "filenameTC", "", "",NULL, B_FOLLOW_LEFT | B_FOLLOW_TOP);
 	mainView->AddChild(filenameTC);
 	filenameTC->SetDivider(0);
-	
+
 	doitB=new BButton(BRect(Bounds().Width()-80,93,Bounds().Width()-9, 119), "doitB", "Do It!", new BMessage(OK_MSG));
 	mainView->AddChild(doitB);
 	doitB->SetTarget(be_app_messenger);

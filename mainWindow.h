@@ -1,5 +1,5 @@
 /*
- 
+
 mainWindow.h
 
 FileCropper - Truncates files. That's simple.
@@ -22,7 +22,7 @@ PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIG
 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- 
+
 */
 #ifndef _MAINWINDOW_H_
 #define _MAINWINDOW_H_
@@ -38,10 +38,10 @@ class mainWindow : public BWindow {
 public:
 	mainWindow();
 	~mainWindow();
-	
+
 	bool QuitRequested();
 	void MessageReceived(BMessage *msg);
-	
+
 	void SetFilename(const char *name);
 	const char *GetFilename();
 	off_t FirstBytes();
