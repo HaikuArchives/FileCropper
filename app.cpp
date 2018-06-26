@@ -1,5 +1,5 @@
 /*
- 
+
 app.cpp
 
 FileCropper - Truncates files. That's simple.
@@ -22,7 +22,7 @@ PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIG
 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- 
+
 */
 #include "app.h"
 #include <Alert.h>
@@ -48,7 +48,7 @@ bool app::QuitRequested() {
 
 void app::MessageReceived(BMessage *msg) {
 	switch(msg->what) {
-	
+
 		case OK_MSG: {
 			off_t first=mainW->FirstBytes(), last=mainW->LastBytes();
 			off_t size=0;
@@ -57,16 +57,16 @@ void app::MessageReceived(BMessage *msg) {
 				file->GetSize(&size);
 				size-=last;
 				file->SetSize(size);
-				
+
 				file->Unset();
 			}
 			break;
 		}
-	
-		case B_SIMPLE_DATA: 
+
+		case B_SIMPLE_DATA:
 			RefsReceived(msg);
-			break;		
-	
+			break;
+
 		default:
 			BApplication::MessageReceived(msg);
 			break;
@@ -81,13 +81,13 @@ void app::RefsReceived(BMessage *msg) {
 	BPath		path;
 
 	msg->GetInfo("refs", &type, &count);
-	
+
 	// not a entry_ref?
 	if (type != B_REF_TYPE) {
 		delete entry;
 		return;
 	}
-	
+
 	if (msg->FindRef("refs", 0, &ref) == B_OK)
 		if (entry->SetTo(&ref,true)==B_OK) {
 			// entry is ok. use it here.
@@ -96,7 +96,7 @@ void app::RefsReceived(BMessage *msg) {
 			mainW->SetFilename(path.Path());
 			mainW->Unlock();
 		}
-	delete entry;	
+	delete entry;
 }
 
 void app::AboutRequested() {
