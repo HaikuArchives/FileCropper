@@ -42,7 +42,7 @@ mainWindow::mainWindow() : BWindow(BRect(150,100, 400, 226), "FileCropper 0.1", 
 	firstTC->SetDivider(28);
 	lastTC=new BTextControl(BRect((Bounds().Width()-7)-133,27,Bounds().Width()-10,47), "lastTC", "and the last ", "0",NULL, B_FOLLOW_LEFT | B_FOLLOW_TOP);
 	mainView->AddChild(lastTC);
-	lastTC->SetDivider(63);
+	lastTC->SetDivider(70);
 	firstTC->SetEnabled(false);
 	mainView->AddChild(new BStringView(BRect(8,47,Bounds().Width()-7, 67), "stringview1", "bytes of this file (drop it):"));
 
